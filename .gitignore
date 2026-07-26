@@ -10,3 +10,4 @@ data/uploads/
 htmlcov/
 .coverage
 
+outputs/
