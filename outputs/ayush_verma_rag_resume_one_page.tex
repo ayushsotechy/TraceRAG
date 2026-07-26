@@ -1,0 +1,229 @@
+\documentclass[a4paper,10pt]{article}
+
+% ==================== PACKAGES ====================
+
+\usepackage[
+  top=0.50in,
+  bottom=0.50in,
+  left=0.60in,
+  right=0.60in
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+% ATS-compatible PDF text extraction
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ==================== GENERAL FORMATTING ====================
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedright
+\raggedbottom
+\urlstyle{same}
+\linespread{1.025}
+
+% ==================== SECTION FORMATTING ====================
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0pt}
+  {}
+  [\vspace{-4pt}\titlerule]
+
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+% ==================== LIST FORMATTING ====================
+
+\setlist[itemize]{
+  leftmargin=16pt,
+  itemsep=1.2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+% ==================== CUSTOM COMMANDS ====================
+
+\newcommand{\resumeHeading}[4]{
+  \textbf{#1} \hfill \textbf{#2}\\
+  \textit{#3} \hfill \textit{#4}\\[-3pt]
+}
+
+\newcommand{\projectHeading}[3]{
+  \textbf{#1} \hfill \textit{#2}\\
+  #3\\[-3pt]
+}
+
+% ==================== DOCUMENT ====================
+
+\begin{document}
+
+% ==================== HEADER ====================
+
+\begin{center}
+  {\LARGE \textbf{Ayush Verma}}\\[4pt]
+
+  New Delhi, India
+  \;|\;
+  \href{tel:+917987891371}{+91 79878 91371}
+  \;|\;
+  \href{mailto:ayushverma3006@gmail.com}
+  {ayushverma3006@gmail.com}\\[2pt]
+
+  \href{https://www.linkedin.com/in/ayush-verma-7334a8194/}
+  {LinkedIn}
+  \;|\;
+  \href{https://github.com/ayushsotechy}
+  {GitHub}
+  \;|\;
+  \href{https://leetcode.com/u/ayushsotechy/}
+  {LeetCode}
+\end{center}
+
+\vspace{-6pt}
+
+% ==================== PROFESSIONAL SUMMARY ====================
+
+\section{Professional Summary}
+
+Software Engineering undergraduate at Delhi Technological University with a
+\textbf{9.18/10 CGPA} and experience building full-stack and
+\textbf{retrieval-augmented generation (RAG)} applications. Proficient in
+\textbf{Python, C++, JavaScript, TypeScript, FastAPI, React.js, Node.js,
+Neo4j, MongoDB, PostgreSQL, REST APIs, Docker, and Azure}.
+
+% ==================== EDUCATION ====================
+
+\section{Education}
+
+\resumeHeading
+  {Delhi Technological University (Formerly Delhi College of Engineering)}
+  {2023 -- 2027}
+  {B.Tech in Software Engineering}
+  {CGPA: 9.18/10}
+
+\vspace{2pt}
+
+\resumeHeading
+  {White Leaf Public School, New Delhi}
+  {2022}
+  {CBSE Class XII}
+  {92.6\%}
+
+\vspace{2pt}
+
+\resumeHeading
+  {Delhi Public School, Gautam Buddha Nagar}
+  {2020}
+  {CBSE Class X}
+  {98.4\%}
+
+% ==================== EXPERIENCE ====================
+
+\section{Professional Experience}
+
+\resumeHeading
+  {Maruti Suzuki India Limited (MSIL)}
+  {May 2026 -- July 2026}
+  {STEP Intern -- Full-Stack Development}
+  {}
+
+\begin{itemize}
+  \item Developed a dealer performance portal using
+  \textbf{Node.js, Express.js, MongoDB, and JavaScript}, supporting Balanced
+  Scorecard (BSC) and Network Scorecard (NSC) workflows for Admin, Dealer,
+  and MSIL users.
+
+  \item Automated Excel ingestion for \textbf{350+ dealer scorecards},
+  transforming transposed workbooks into structured records across
+  \textbf{8 business areas and 31 performance parameters} per dealer.
+
+  \item Implemented \textbf{RBAC}, dealer-code mapping, and API security using
+  JWT, bcrypt, Helmet, CORS, and rate limiting; improved scalability through
+  summary APIs, on-demand retrieval, and MongoDB \textbf{bulkWrite}.
+\end{itemize}
+
+% ==================== PROJECTS ====================
+
+\section{Projects}
+
+\projectHeading
+  {FlavorFeed -- Video-First Food Delivery Platform}
+  {Personal Project}
+  {\href{https://flavour-feed-latest.vercel.app/}{Live Application}
+  \;|\;
+  \href{https://github.com/ayushsotechy/ZomatoClone.git}{GitHub Repository}}
+
+\begin{itemize}
+  \item Built a full-stack \textbf{MERN} food-commerce platform with a
+  video-first discovery feed and relational Mongoose schemas for users,
+  restaurants, foods, comments, and likes.
+
+  \item Developed REST APIs with JWT authentication and role-based
+  authorization; integrated ImageKit for cloud media delivery.
+  \textbf{Stack:} React.js, Node.js, Express.js, MongoDB, Tailwind CSS.
+\end{itemize}
+
+\vspace{2pt}
+
+\projectHeading
+  {TraceRAG -- Hybrid and GraphRAG Document Intelligence Platform}
+  {Personal Project}
+  {\href{https://github.com/ayushsotechy/TraceRAG}{GitHub Repository}}
+
+\begin{itemize}
+  \item Engineered RAG ingestion for PDF, Markdown, and text documents with
+  metadata-aware chunking, persistent indexing, citations, and
+  confidence-based abstention.
+
+  \item Implemented \textbf{multilingual Sentence Transformer embeddings},
+  BM25, reciprocal-rank fusion, and multilingual \textbf{cross-encoder
+  reranking}; added offline Recall@K and mean reciprocal rank evaluation.
+
+  \item Built \textbf{GraphRAG} with Neo4j and structured LLM outputs for
+  typed entity/relationship extraction, provenance-aware graph traversal,
+  and graph-text evidence fusion.
+
+  \item Implemented grounded multilingual LLM answers with inline citations
+  and abstention; delivered typed FastAPI services, Streamlit UI, Docker
+  Compose, persistent Neo4j storage, and automated tests.
+  \textbf{Stack:} Python, FastAPI, Neo4j, BM25, NumPy, Streamlit, Docker.
+\end{itemize}
+
+% ==================== TECHNICAL SKILLS ====================
+
+\section{Technical Skills}
+
+\textbf{Languages:} Python, C++, JavaScript, TypeScript\\
+\textbf{GenAI and Data:} RAG, GraphRAG, hybrid retrieval, BM25, multilingual
+embeddings, cross-encoder reranking, Pandas, NumPy, Scikit-learn\\
+\textbf{Frameworks:} FastAPI, React.js, Node.js, Express.js, Tailwind CSS,
+REST APIs\\
+\textbf{Databases:} Neo4j, MongoDB, PostgreSQL, Mongoose, Prisma ORM\\
+\textbf{Tools and Cloud:} Git, GitHub, Docker, Postman, CI/CD, Microsoft Azure\\
+\textbf{Coursework:} Data Structures and Algorithms, Object-Oriented
+Programming, Operating Systems, Computer Networks, DBMS
+
+% ==================== ACHIEVEMENTS ====================
+
+\section{Achievements}
+
+\begin{itemize}
+  \item Achieved a \textbf{1700+ contest rating on LeetCode}.
+
+  \item Maintained a CGPA above \textbf{9.0/10}, with a semester-high GPA of
+  \textbf{9.7/10}; received CBSE Merit Certificates for ranking in the
+  \textbf{top 0.01\% nationwide} in Class X English and Sanskrit.
+\end{itemize}
+
+\end{document}

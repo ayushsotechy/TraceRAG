@@ -1,0 +1,61 @@
+                                            Ayush Verma
+                       New Delhi, India | +91 79878 91371 | ayushverma3006@gmail.com
+                                        LinkedIn | GitHub | LeetCode
+
+Professional Summary
+Software Engineering undergraduate at Delhi Technological University with a 9.18/10 CGPA and experience building
+secure, scalable full-stack applications. Proficient in C++, JavaScript, TypeScript, React.js, Node.js,
+Express.js, MongoDB, PostgreSQL, REST APIs, Docker, and Azure.
+
+Professional Experience
+Maruti Suzuki India Limited (MSIL)                                                   May 2026 – July 2026
+STEP Intern – Full-Stack Development
+ • Developed a dealer performance portal using Node.js, Express.js, MongoDB, and JavaScript, supporting
+   Balanced Scorecard (BSC) and Network Scorecard (NSC) workflows for Admin, Dealer, and MSIL users.
+ • Automated Excel ingestion for 350+ dealer scorecards, transforming transposed workbooks into structured
+   records across 8 business areas and 31 performance parameters per dealer.
+ • Implemented role-based access control (RBAC), dealer-code mapping, and REST API security using JWT,
+   bcrypt, Helmet, CORS, and rate limiting.
+ • Improved scalability through summary APIs, on-demand retrieval, and MongoDB bulkWrite; prototyped Azure
+   Blob Storage workflows for review-sheet uploads and downloads.
+
+Projects
+FlavorFeed – Video-First Food Delivery Platform                                                   Personal Project
+Live Application | GitHub Repository
+ • Architected a full-stack MERN food-commerce platform featuring a video-first scrolling feed for product and
+   restaurant discovery.
+ • Designed MongoDB schemas and Mongoose relationships for Users, Restaurant Partners, Foods, Comments, and
+   Likes using population queries.
+ • Developed REST APIs with JWT authentication, protected routes, and role-based authorization;
+   integrated ImageKit for cloud media delivery. Stack: React.js, Node.js, Express.js, MongoDB, Tailwind CSS.
+Store Genius – B2B Demand Prediction Platform                                                         Group Project
+GitHub Repository
+ • Developed a B2B inventory intelligence platform that analyzes real-time product trends to identify demand spikes
+   and support purchasing decisions.
+ • Built a Smart Basket Assistant that converts natural-language prompts into optimized product baskets and a
+   Sustainability Tracker that labels products using estimated carbon impact.
+ • Integrated Google Trends API and Hugging Face services. Stack: React.js, TypeScript, Node.js, Express.js,
+   MongoDB, Docker.
+
+Technical Skills
+Languages: C++, JavaScript, TypeScript Frontend: React.js, Tailwind CSS, HTML, CSS
+Backend: Node.js, Express.js, REST APIs, JWT, RBAC Databases: MongoDB, PostgreSQL, Mongoose, Prisma
+ORM
+Tools and Cloud: Git, GitHub, Postman, Docker, CI/CD, Microsoft Azure Data/ML: Pandas, NumPy,
+Scikit-learn
+Coursework: Data Structures and Algorithms, Object-Oriented Programming, Operating Systems, Computer
+Networks, DBMS
+
+Education
+Delhi Technological University (Formerly Delhi College of Engineering)                               2023 – 2027
+B.Tech in Software Engineering                                                                     CGPA: 9.18/10
+White Leaf Public School, New Delhi                                                                         2022
+CBSE Class XII                                                                                             92.6%
+Delhi Public School, Gautam Buddha Nagar                                                                    2020
+CBSE Class X                                                                                               98.4%
+
+Achievements
+• Maintained a CGPA above 9.0/10 across all completed semesters, with a semester-high GPA of 9.7/10.
+• Received CBSE Merit Certificates for ranking in the top 0.01% nationwide in Class X English and Sanskrit.
+• Secured third position overall at school in the Class X CBSE board examinations.
+
