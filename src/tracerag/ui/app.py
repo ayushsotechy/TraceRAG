@@ -3,7 +3,9 @@ import os
 import httpx
 import streamlit as st
 
-API_URL = os.getenv("TRACERAG_API_URL", "http://localhost:8000")
+API_URL = os.getenv("TRACERAG_API_URL", "http://localhost:8000").rstrip("/")
+if not API_URL.startswith(("http://", "https://")):
+    API_URL = f"http://{API_URL}"
 
 st.set_page_config(page_title="TraceRAG", page_icon="🔎", layout="wide")
 st.title("TraceRAG")

@@ -1,0 +1,33 @@
+services:
+  - type: pserv
+    name: tracerag-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATA_DIR
+        value: /app/data
+      - key: EMBEDDING_PROVIDER
+        value: hash
+      - key: RERANKER_PROVIDER
+        value: none
+      - key: GENERATION_PROVIDER
+        value: extractive
+      - key: ENTITY_EXTRACTION_PROVIDER
+        value: local
+      - key: RETRIEVAL_MODE
+        value: hybrid
+
+  - type: web
+    name: tracerag-ui
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerCommand: streamlit run src/tracerag/ui/app.py --server.address=0.0.0.0 --server.port=$PORT --server.headless=true
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: TRACERAG_API_URL
+        fromService:
+          type: pserv
+          name: tracerag-api
+          property: hostport
