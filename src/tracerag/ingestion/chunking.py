@@ -28,7 +28,14 @@ def chunk_documents(
 
 
 def _split_text(text: str, chunk_size: int, overlap: int) -> list[str]:
-    normalized = re.sub(r"\s+", " ", text).strip()
+    # PDF extractors often remove spacing between styled text runs and flatten
+    # bullet points. Restore those boundaries before creating searchable chunks.
+    normalized = re.sub(r"\s*[•▪◦]\s*", ". ", text)
+    normalized = re.sub(r"\s*\|\s*", ". ", normalized)
+    normalized = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", normalized)
+    normalized = re.sub(r"\b(MERN|REST|RBAC|JWT|API)(?=[a-z])", r"\1 ", normalized)
+    normalized = re.sub(r"(?<=\d)(?=[A-Za-z])|(?<=[A-Za-z])(?=\d)", " ", normalized)
+    normalized = re.sub(r"\s+", " ", normalized).strip(" .")
     if not normalized:
         return []
 

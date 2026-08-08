@@ -33,32 +33,65 @@ class ExtractiveGenerator:
                 selected.append((sentence, result, overlap))
         selected.sort(key=lambda item: (item[2], item[1].score), reverse=True)
 
-        citations: list[Citation] = []
-        answer_parts: list[str] = []
-        seen_chunks: set[str] = set()
-        for sentence, result, _ in selected:
-            if result.chunk.id in seen_chunks or len(sentence) < 30:
-                continue
-            source_id = len(citations) + 1
-            answer_parts.append(f"{sentence} [{source_id}]")
-            citations.append(
-                Citation(
-                    source_id=source_id,
-                    filename=result.chunk.filename,
-                    page=result.chunk.page,
-                    excerpt=result.chunk.text[:280],
-                )
+        best = next((item for item in selected if item[2] > 0 and len(item[0]) >= 12), None)
+        if best is None:
+            best = next((item for item in selected if len(item[0]) >= 30), None)
+        if best is None:
+            return Answer(
+                text="I don't have enough evidence in the indexed documents to answer that.",
+                citations=(),
+                confidence=0.0,
+                abstained=True,
             )
-            seen_chunks.add(result.chunk.id)
-            if len(answer_parts) == 3:
-                break
 
-        confidence = min(1.0, contexts[0].score * 0.7 + (len(answer_parts) / 3) * 0.3)
+        sentence, result, _ = best
+        sentence = sentence.strip(" .")
+        definition_match = re.match(r"\s*what\s+(?:is|are)\s+(.+?)\??\s*$", question, re.I)
+        if definition_match:
+            subject = definition_match.group(1).strip()
+            subject_terms = re.findall(r"[a-z0-9]+", subject.lower())
+            chunk_sentences = re.split(r"(?<=[.!?])\s+", result.chunk.text)
+            heading = next(
+                (
+                    item.strip(" .")
+                    for item in chunk_sentences
+                    if all(term in item.lower() for term in subject_terms)
+                ),
+                sentence,
+            )
+            description = next(
+                (
+                    item.strip(" .")
+                    for item in chunk_sentences
+                    if re.match(
+                        r"(?:Architected|Built|Created|Developed|Designed|Implemented)\b",
+                        item.strip(),
+                        re.I,
+                    )
+                ),
+                "",
+            )
+            label = re.sub(r"^.*?(?=" + re.escape(subject) + r")", "", heading, flags=re.I)
+            label = re.split(r"\b(?:Personal Project|Live Application|Git Hub)\b", label)[0]
+            parts = re.split(r"\s+[–—-]\s+", label, maxsplit=1)
+            if len(parts) == 2:
+                sentence = f"{parts[0].strip()} is {parts[1].strip().lower()}"
+            else:
+                sentence = label
+            if description:
+                sentence = f"{sentence}. {description}"
+        citation = Citation(
+            source_id=1,
+            filename=result.chunk.filename,
+            page=result.chunk.page,
+            excerpt=result.chunk.text[:280],
+        )
+        confidence = min(1.0, result.score * 0.7 + 0.3)
         return Answer(
-            text=" ".join(answer_parts),
-            citations=tuple(citations),
+            text=f"{sentence}. [1]",
+            citations=(citation,),
             confidence=confidence,
-            abstained=not answer_parts,
+            abstained=False,
         )
 
 
