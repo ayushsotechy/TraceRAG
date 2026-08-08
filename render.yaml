@@ -30,7 +30,4 @@ services:
     healthCheckPath: /_stcore/health
     envVars:
       - key: TRACERAG_API_URL
-        fromService:
-          type: web
-          name: tracerag-api
-          property: hostport
+        value: https://tracerag-api.onrender.com
