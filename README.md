@@ -122,6 +122,23 @@ docker compose up --build
 `hybrid` mode remains the default and does not require a running Neo4j database when the
 API is started directly with `make api`.
 
+## Deploy on Render
+
+The included `render.yaml` deploys a public Streamlit UI and FastAPI service on free plans.
+The UI runs ingestion and retrieval in-process so an API routing interruption cannot break
+document uploads. Both services use the credential-free hybrid retrieval and extractive
+generation defaults, so no API keys or Neo4j instance are required.
+
+1. In the Render dashboard, choose **New > Blueprint**.
+2. Connect this repository and select the `main` branch.
+3. Review the two services and apply the Blueprint.
+4. Open the URL for `tracerag-ui`, upload a document, build the index, and ask a question.
+
+Uploaded files and the index use ephemeral storage in this demo configuration. They may
+be cleared whenever the API service restarts or redeploys, so upload the demo document
+again when needed. Add a persistent disk mounted at `/app/data` if long-lived indexes are
+required.
+
 ## API example
 
 ```bash
