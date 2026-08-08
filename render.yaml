@@ -28,6 +28,3 @@ services:
     dockerfilePath: ./Dockerfile
     dockerCommand: streamlit run src/tracerag/ui/app.py --server.address=0.0.0.0 --server.port=$PORT --server.headless=true
     healthCheckPath: /_stcore/health
-    envVars:
-      - key: TRACERAG_API_URL
-        value: https://tracerag-api.onrender.com

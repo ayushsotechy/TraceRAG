@@ -125,8 +125,9 @@ API is started directly with `make api`.
 ## Deploy on Render
 
 The included `render.yaml` deploys a public Streamlit UI and FastAPI service on free plans.
-Both use the credential-free hybrid retrieval and extractive generation defaults, so no
-API keys or Neo4j instance are required.
+The UI runs ingestion and retrieval in-process so an API routing interruption cannot break
+document uploads. Both services use the credential-free hybrid retrieval and extractive
+generation defaults, so no API keys or Neo4j instance are required.
 
 1. In the Render dashboard, choose **New > Blueprint**.
 2. Connect this repository and select the `main` branch.
