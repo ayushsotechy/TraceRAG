@@ -124,7 +124,7 @@ API is started directly with `make api`.
 
 ## Deploy on Render
 
-The included `render.yaml` deploys a public Streamlit UI and a private FastAPI service.
+The included `render.yaml` deploys a public Streamlit UI and FastAPI service on free plans.
 Both use the credential-free hybrid retrieval and extractive generation defaults, so no
 API keys or Neo4j instance are required.
 

@@ -1,8 +1,10 @@
 services:
-  - type: pserv
+  - type: web
     name: tracerag-api
     runtime: docker
+    plan: free
     dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
     envVars:
       - key: APP_ENV
         value: production
@@ -22,12 +24,13 @@ services:
   - type: web
     name: tracerag-ui
     runtime: docker
+    plan: free
     dockerfilePath: ./Dockerfile
     dockerCommand: streamlit run src/tracerag/ui/app.py --server.address=0.0.0.0 --server.port=$PORT --server.headless=true
     healthCheckPath: /_stcore/health
     envVars:
       - key: TRACERAG_API_URL
         fromService:
-          type: pserv
+          type: web
           name: tracerag-api
           property: hostport
